@@ -1,0 +1,60 @@
+{% extends 'layouts/layout.html' %}
+{% load static %}
+
+{% block main %}
+<section id="aa-signin" >
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="aa-signin-area">
+            <div class="aa-signin-form">
+              <div class="aa-signin-form-title">
+                <a class="aa-property-home" href="index.html">Property Home</a>
+                <h4>Create your account and Stay with us</h4>
+              </div>
+              <form class="contactform" method= "post" action="{% url 'seller:register' %}"> 
+                {% csrf_token %}
+                {{form.non_field_errors }}                                        
+                <div class="aa-single-field">
+                    <label for="name">First Name <span class="required">*</span></label>
+                    {{form.first_name}}
+                    {{form.first_name.errors}}
+                </div>
+                <div class="aa-single-field">
+                    <label for="name">Last Name <span class="required">*</span></label>
+                    {{form.last_name}}
+                    {{form.last_name.errors}}
+                </div>
+                <div class="aa-single-field">
+                    <label for="name">Username <span class="required">*</span></label>
+                    {{form.username}}
+                    {{form.username.errors}}
+                </div>
+                <div class="aa-single-field">
+                    <label for="email">Email <span class="required">*</span></label>
+                    {{form.email}}
+                    {{form.email.errors}}
+                </div>
+                <div class="aa-single-field">
+                    <label for="password">Password <span class="required">*</span></label>
+                    {{form.password1}}
+                    {{form.password1.errors}}
+                </div>
+                <div class="aa-single-field">
+                    <label for="confirm-password">Confirm Password <span class="required">*</span></label>
+                    {{form.password2}}
+                    {{form.password2.errors}}
+                </div>
+                <div class="aa-single-submit">
+                  <input type="submit" value="Create Account" name="submit">                    
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> 
+{% endblock main %}
+
+
